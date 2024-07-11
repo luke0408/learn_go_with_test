@@ -10,3 +10,24 @@ func Sum(numbers []int) int {
 
 	return sum
 }
+
+func SumAll(numbersToSum ...[]int) []int {
+	/*
+		아래와 같이 작성 가능
+		하지만, len()의 반환값에 따라 out of range 에러가 발생할 수 있음
+
+		lengthOfNumbers := len(numbersToSum)
+		sums := make([]int, lengthOfNumbers)
+		for i, numbers := range numbersToSum {
+		  sums[i] = Sum(numbers)
+		}
+	*/
+
+	var sums []int
+	for _, numbers := range numbersToSum {
+		// append: 슬라이스에 요소 추가
+		sums = append(sums, Sum(numbers))
+	}
+
+	return sums
+}
