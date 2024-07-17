@@ -31,3 +31,18 @@ func SumAll(numbersToSum ...[]int) []int {
 
 	return sums
 }
+
+func SumAllTails(numbersToSum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersToSum {
+		if len(numbers) == 0 {
+			sums = append(sums, 0)
+		} else {
+			// 슬라이스의 첫 번째 요소를 제외한 나머지 요소를 반환
+			tail := numbers[1:]
+			sums = append(sums, Sum(tail))
+		}
+	}
+
+	return sums
+}
