@@ -35,6 +35,11 @@ func walk(x interface{}, fn func(input string)) {
 		for _, key := range val.MapKeys() {
 			walkValue(val.MapIndex(key))
 		}
+	case reflect.Chan:
+		// Recv() 메서드를 사용하여 채널로부터 값을 읽어온다.
+		for v, ok := val.Recv(); ok; v, ok = val.Recv() {
+			walk(v.Interface(), fn)
+		}
 	}
 }
 
