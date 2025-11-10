@@ -2,7 +2,6 @@
   packages = [
     pkgs.go
     pkgs.gitmoji-cli
-    pkgs.golangci-lint
   ];
  
   idx = {
