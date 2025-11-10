@@ -1,4 +1,4 @@
-package main
+package dictionay
 
 type Dictionary map[string]string
 type DictionaryErr string
